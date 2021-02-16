@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Input } from '../../../components/Input';
+
 // import { Container } from './styles';
 
 function Profile() {
@@ -7,8 +9,8 @@ function Profile() {
       <>
         <h1>Profile</h1>
 
-        <input placeholder="name" />
-        <input placeholder="age" />
+        <Input name="nome" label="Nome" placeholder="name" />
+        <Input name="age" placeholder="age" />
       </>
   );
 }

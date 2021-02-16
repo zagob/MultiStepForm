@@ -1,25 +1,31 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import MultiStep from '../../components/Multistep';
 
+import { Form as Formulario } from '@unform/web';
+
 import Profile from './Profile';
-import Address from './Address';
+import Hobbies from './Hobbies';
+import Sexo from './Sexo';
 
 function Form() {
-
-    const handleSubmit = (event) => {
-        event.preventDefault()
-        console.log(event)
+    const formRef = useRef();
+    const handleSubmit = (data) => {
+        // event.preventDefault()
+        console.log(data)
+        console.log(data.sex)
     }
   return (
-    <form onSubmit={handleSubmit}>
+    <Formulario ref={formRef} onSubmit={handleSubmit} initialData={{ sex: "M" }}>
       <MultiStep>
             <Profile />
 
-            <Address />
+            <Hobbies />
+
+            <Sexo />
 
             <button type="submit">Send</button>
       </MultiStep>
-    </form>
+    </Formulario>
   );
 }
 
